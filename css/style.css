@@ -1,0 +1,810 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,100&family=Roboto:ital,wght@0,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+/* Si necesitas que el cargador vaya más rápido o más lento, este es el lugar para cambiar. 
+No olvidar actualizar 'time' en el javascript */
+:root {
+    --time: 5s;
+    --font: 'Lato';
+    --celeste: #5499F8;
+    --amarillo: #FFD700;
+    --violeta: #8F6AA6;
+    --azul-oscuro: #02187E;
+    /*letra boton y sombra */
+}
+
+
+/*========== BARRA DE NAVEGACION ==========*/
+/*#header.sticky{
+    position: sticky;
+    top: 0; /* Fija el encabezado en la parte superior 
+    background-color:linear-gradient(180deg, #5499F8 0%, #5499F8 67.91%, rgba(84, 153, 248, 0.00) 100%);
+    z-index: 1000;  Asegura que esté sobre otros elementos 
+    height: 103px;
+    transition: height 0.3s ease;
+}*/
+
+#header.sticky .buy-button{
+    margin-bottom: 5px ;
+}
+header {
+    height: 220px;
+    z-index: 10;
+    background: #5499F8;
+}
+
+header .container1080 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+header .container1080 button {
+    width: 200px;
+    height: 50px;
+    margin-top: 15px;
+}
+
+/*========= BOTONES ========*/
+.buy-button {    
+    width: 292px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 111px;
+    border: 8px solid var(--2982-ff, #2982FF);
+    background: var(--amarillo);
+    box-shadow: 4px 5px 0px 0px var(--azul-oscuro);
+    transition: transform 0.3s ease;
+    box-shadow: 4px 5px 0px 0px transparent; /* Sombra inicial */
+    transition: box-shadow 0.3s ease;
+}
+.buy-button:hover {
+    box-shadow: 4px 5px 0px 0px var(--azul-oscuro);
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+    
+}
+
+
+.txt-btn {
+    color: var(--azul-oscuro);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 19px;
+    letter-spacing: 2.2px;
+    -webkit-text-stroke: 1.5px var(--azul-oscuro);
+}
+
+.menu-hamb {
+    position: absolute;
+    top: 25px;
+    left: 100px;
+    cursor: pointer;
+    width: 46px;
+    height: 39px;
+}
+
+.menu-hamb img{
+    width: 100%;
+    height: 100%;
+}
+
+.desplegar {
+    transform: translateX(-200%);
+}
+
+.desplegable{
+    margin-left: -20px;
+    width: 250px;
+    height: 350px;
+    padding-left: 25px;
+    padding-top: 32px;
+    background-color:transparent;
+    z-index: 9999;
+    position: relative;
+    transition: 0.4s;
+}
+/**************/
+
+.desplegable ul {
+    list-style: none;
+    padding: 0;
+}
+
+.desplegable li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+   
+}
+
+.desplegable li img {
+    margin-right: 10px;
+    width: 35px; /* Modifica el tamaño de los íconos */
+    height: 35px; /* Modifica el tamaño de los íconos */
+}
+
+.desplegable li p {
+    margin: 0;
+   font-size: 20px;
+    -webkit-text-stroke: 1px black; /* Borde de 1px de grosor en color negro */
+    text-shadow: 0 0 1px black;  
+    color: #FFD700;
+} 
+
+.desplegable ul li p:hover {
+    color: var(--azul-oscuro);
+}
+.desplegable li:hover{
+    color: var(--azul-oscuro);
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+   
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*MIRAR LO DEL TAMAÑO DE LA PANTALLA*/
+.container1080 {
+    width: 1080px;
+    margin: auto;
+}
+
+/*========== PRIMER PARALLAX ===========*/
+.section1 {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 720px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Ajuste para cubrir toda la pantalla */
+    /* background-attachment: fixed;  Fija el fondo mientras se desplaza la página */
+    margin-top: -70px;
+    perspective-origin: 0 0;
+}
+
+.section1 .title {
+    position: absolute;
+    width: 590px;
+    height: 301px;
+    top: -48px;
+    left: 25%;
+
+}
+
+
+/*.section1 .edificios{
+    position: absolute;
+    left: -4%;
+    z-index: 1;
+}*/
+
+.edif-der{
+    position: absolute;
+    z-index: 1;
+    left: -10%;
+    height: 780px;
+}
+
+.edif-frente{
+    position: absolute;
+    z-index: 1;
+    bottom: -8%;
+    right: 33%;
+}
+
+.edif-izq{
+    position: absolute;
+    z-index: 1;
+    right: -8%;
+}
+
+.section1 .character1 {
+    width: 360px;
+    height: 444px;
+    position: absolute;    /* Asegura que el posicionamiento sea absoluto */
+    z-index: 1;
+    bottom: 10px;
+    top: 13%;    /* Ajusta según sea necesario para la posición vertical */
+    left: 90px;     /* Coloca la imagen en el lado izquierdo del contenedor */
+}
+
+.section1 .character2 {
+    width: 465px;
+    height: 465px;
+    position: absolute;    /* Asegura que el posicionamiento sea absoluto */
+    z-index: 10;
+    bottom: 10px;
+    top: 18%;    /* Ajusta según sea necesario para la posición vertical */
+    left: 32%;     /* Coloca la imagen en el lado izquierdo del contenedor */
+}
+
+.section1 .character3 {
+    top: 14.5%;
+    right: 14.5%;
+    position: absolute;
+    width: 393px;
+    height: 393px;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.section1 .web1 {
+    position: absolute;
+    z-index: 10;
+    top: 35.5%;
+    left: -14%;
+    flex-shrink: 0;
+}
+
+.section1 .web2 {
+    top: 19%;
+    left: 77%;
+    position: absolute;
+    z-index: 10;
+}
+
+
+/*======== parallax 2 ========*/
+.section2 {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 924.5px;
+    background-image: url(../img/seccion2/RectanglePurple.png);
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+    margin-top: -50px;
+}
+
+.section2 .container1080 {
+    position: relative;
+}
+
+.section2 .parallax-seccion2{
+    position: relative;
+}
+
+.duendeVerde {
+    position: absolute;
+    right: -90px;
+    top: 140px;
+}
+
+.juego-seccion2 {
+    position: absolute;
+    left: -10px;
+    top: 520px;
+}
+
+.section2 .content {
+    position: absolute;
+    top: 190px;
+    left: -20px;
+    z-index: 3;
+    padding: 20px;
+    width: 646px;
+    color: white; 
+}
+
+.section2 .content h1 {
+    margin-bottom: 24px;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;
+}
+
+.section2 .content p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 586px;
+    height: 154px;
+}
+
+/*======== parallax 3 o Seccion 3 ========*/
+
+.section3 {
+    background-color: white;
+    width: 100%;
+    height: 1085px;
+    margin-top: -246px;
+    z-index: 1;
+}
+
+.container3 {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 390px;   
+    display: flex;
+    justify-content: space-between;
+}
+
+.container3 img {
+    width: 30%;   
+    max-height: auto;    
+}
+.container3 p {
+    color: #000;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 333px;
+    height: 218px;
+
+}
+.img-container {
+    flex: 1;    /* Distribuye el espacio de manera equitativa entre las imágenes */
+    max-width: 30%;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 23px;
+}
+
+/*======== Seccion 4 ========*/
+
+.section4{
+    width: 100%;    
+    height: 566px;
+    background-image: url(../img/seccion4/fondoSec4.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: -70px;
+}
+.section4 .img1{
+    position: absolute;
+    width: 546.108px;
+    height: 326.509px;
+    flex-shrink: 0;
+    margin-top: -160px;
+    left: 45px;
+}
+
+.section4 .img2{
+    width: 543.218px;
+    height: 325.787px;
+    flex-shrink: 0;
+    position: absolute;
+    left: 30px;
+    margin-top: -20px;
+}
+
+.section4 .img3{
+    width: 546.108px;
+    height: 326.509px;
+    position: absolute;
+    left: 60px;
+    margin-top: 169px;
+}
+
+.section4 img:hover{
+    transform: rotateZ(16deg);
+    transition: all 0.6s;
+}
+
+/*======== Seccion 5 ========*/
+
+.section5{
+    display: flex;
+    justify-content: center;
+    height: 816px;   
+    margin-bottom: -57px;
+}
+
+.section5 .container1080 h1{
+    width: 667px;
+    color: #FFF;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;
+    margin-top: -250px;
+    margin-bottom: 50px;
+}
+
+.parallax-seccion5{
+    position: relative;
+}
+
+.parallax-seccion5 img {
+    position: absolute;
+}
+
+/* .parallax-seccion5 .cielo{
+    width: 1077.059px;
+    height: 527.626px;
+}
+
+.parallax-seccion5 .small-plants{
+    z-index: 1;
+} */
+
+.parallax-seccion5 .msMarvel{    
+    left: 30px;
+    top: -95px;    
+}
+
+.parallax-seccion5 .blackPanter{
+    left: 455px;
+    top: -250px;
+    transform: rotate(4deg);
+}
+
+.section5 .hulk{
+    right: -55px;
+    margin-top: 110px;
+}
+
+/*======== Seccion 6 ========*/
+.section6{
+    background-image: url(../img/seccion7/Rectangle9.png);
+    height: 2194.5px;
+    margin-top: -50px;
+    background-size: auto;
+    background-repeat: no-repeat;
+   
+    margin-bottom: 70px;   
+}
+.centerS6 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+}
+.centerS6 h1{
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%; /* 56.7px */
+    padding-top: 240px;
+}
+.row-s6 {
+    width: 100%;
+    height: 1650px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.col-img {
+    width: 552px;
+    height: 1650px;
+    /* background-color: #027e02; */
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+.col-img2{
+    width: 100%;
+    height: 350px;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 35%;
+}
+.img-sec6{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+}
+.show-img{
+    z-index: 1;
+    opacity: 1;
+}
+.text-column{
+    position: relative;
+    left: 601px;
+    width: 467px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    box-sizing: border-box;
+}
+.seccion6-txt{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /*define la separación entre  los elementos uno debajo del otro.*/
+    opacity: 0;
+    transition: all 0.2s ease-in;
+}
+.show-txt{
+    opacity: 1;
+}
+.seccion6-txt h3{
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%; /* 37.8px */
+    padding-bottom: 20px;
+}
+.seccion6-txt p{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%; /* 18.9px */
+}
+
+
+/*======== mini seccion negra========*/
+.mini-seccion-negra h1{
+    width: 816px;
+    color: #FFF;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 30px;
+}
+.mini-seccion-negra{
+    height: 250px;
+}
+/*======== Seccion 7 ========*/
+.section7{
+    height: 719.861px;
+    background-image: url(../img/seccion7/Rectangle10.png);
+    padding-bottom: 67px;
+    position: relative;
+}
+.section7 .container1080{
+    position: relative;
+}
+.section7 .container1080 img{
+    height: auto;
+    margin-top: 150px;  
+    position: absolute;  
+}
+.section7 .gwenStacy{
+    margin-left: 10%;
+}
+.section7 .peterParker{
+    margin-left: 30%;
+}
+.section7 .milesMorales{
+ margin-left: 65%;
+}
+/*========= cards ==========*/
+.card-seccion7{
+    border: 1px white solid;
+    width: 1280px;
+    height: 832px;
+    background-color: rgb(15, 15, 15);
+    position: absolute;
+    align-items: center;
+    
+    display: flex;
+}
+
+div.card-seccion7 .close{    
+    position: absolute;
+    cursor: pointer;
+    width: 89px;
+    height: 89px;
+    left: 1080px;
+    margin-top: -711px;
+    right: 35px;
+}
+.card-seccion7 > img{
+    width: 284px;
+    height: 715px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.txt-card{
+    color: white;
+    width: 724px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.txt-card h2{
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+ol {
+    margin-left: 20px; /* Ajusta el margen izquierdo de la lista */
+    padding-left: 20px; /* Ajusta el relleno izquierdo de la lista */
+}
+
+/* Estilos para los elementos de lista */
+li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+}
+
+/*======== Seccion 8 ========*/
+.section8{
+    background-image: url(../img/seccion8/s7-fondo.png);
+    position: relative;
+    height: 1296px;
+}
+.section8 .seccion8-edificios{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.section8 h1{
+    width: 816px;
+    color: #000;
+    text-align: center;
+    font-family: Lato;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%; /* 56.7px */
+    margin-top: 150px;
+}
+.suscripcion input{
+    letter-spacing: 2.2px;
+    padding-left: 60px;
+    font-size: 20px;
+    width: 562px;
+    height: 100px;
+    border-radius: 50px 0px 0px 50px;
+    border-top: 9px solid #2982FF;
+    border-bottom: 9px solid #2982FF;
+    border-left: 9px solid #2982FF;
+    background: #FFF;
+    margin-right: -10px;
+
+    /* Drop Shadow */
+    box-shadow: 4px 5px 0px 0px #02187E;
+}
+
+.suscripcion button{
+    width: 218px;
+    height: 100px;
+    border-radius: 0px 50px 50px 0px;
+    border: 9px solid #2982FF;
+    background: #FFE901;
+
+    /* Drop Shadow */
+    box-shadow: 4px 5px 0px 0px #02187E;
+}
+.section8 p{
+    width: 578px;
+    height: 95px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%; /* 18.9px */
+    margin-left: -60px;
+}
+.section8 p span{
+    text-decoration-line: underline;
+}
+.suscripcion{
+    margin-bottom: 40px; /*pongo espacio entre el input y el parrafo*/
+}
+
+.suscripcion input[type="text"],
+.suscripcion button {
+    display: flex;
+    display: inline-block; /* Para que el input y el botón se muestren en la misma línea */
+    vertical-align: middle; /* Alinear verticalmente al centro */
+    margin-top: 45px;
+    
+}
+.section8 .container1080{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.section8 .teen{
+    width: 231px;
+    height: 145px;
+    margin-left: -318px;
+    margin-top: 15px;
+}
+/************************/
+/* Animación del personaje */
+#spider-sheet {
+    /* Tamaño de la viñeta individual */
+    width:91px;
+    height:71px;
+    /* Cómo hay establecido un tamaño, centramos con margin:auto */
+    margin-left:-82px;  
+    /* Cargamos el sprite (el repeat-x se puede omitir, por defecto se repite) */
+    background:url(../img/seccion8/Group15.png) repeat-x;
+    /* Aplicamos la animación "walk": 0.8seg, 6 viñetas y repetimos infinitamente */
+    animation:walk .5s steps(3) infinite;
+    /* Posicionamos el personaje sobre el camino de madera */
+    position:relative;
+    bottom:-295px;    
+  }
+  
+  /* Animación de personaje caminando: Simplemente mueve el sprite sheet hacia la izquierda, realizando el movimiento. */
+  @keyframes walk {
+    /* Partimos de la primera viñeta del sprite sheet */
+    0% { background-position:0 }
+    /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
+    100% { background-position:-213px }
+  }
+/************************/
+/*======FOOTER==========*/
+footer{
+    width: 100%;
+    height: 673px;
+    background-color: #5E5E5D;
+}
+
+.plataforms-container{
+    width: 100%;
+    height: 75px;
+    background-color: #242424;
+}
+
+.plataforms{
+    width: 1080px;
+    height: 75px;
+    margin: auto;
+}
+
+.plataforms img{
+    width: 100%;
+    height: 100%;
+}
+
+.information-container{
+    width: 1080px;
+    height: 361px;
+    margin: auto;
+    margin-top: 38px;
+}
+
+.information-container .font-footer{
+    width: 820px;
+    color: #FFF;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%;
+    letter-spacing: 2.2px;
+    text-decoration-line: underline;
+}
+
+.cookies{
+    margin-top: 20px;
+}
+
+.social{
+    margin-top: 38px;
+}
